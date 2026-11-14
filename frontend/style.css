@@ -1,0 +1,248 @@
+:root {
+  --red-primary: #c81e1e;
+  --red-dark: #9b1c1c;
+  --red-soft: #fde8e8;
+  --bg-gray: #f3f4f6;
+  --white: #ffffff;
+  --border: #e5e7eb;
+  --text-dark: #111827;
+  --text-muted: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg-gray);
+  color: var(--text-dark);
+}
+
+/* Top Header */
+header {
+  background: var(--red-primary);
+  color: var(--white);
+  padding: 14px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand h1 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.brand span {
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  padding-left: 14px;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.header-meta {
+  font-size: 0.85rem;
+  text-align: right;
+  opacity: 0.95;
+}
+
+/* Main Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 58px);
+}
+
+/* Sidebar */
+aside {
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+aside h3 {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 6px;
+}
+
+select,
+button {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.btn-red {
+  background: var(--red-primary);
+  color: var(--white);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-red:hover {
+  background: var(--red-dark);
+}
+
+.nav-pill {
+  background: var(--red-soft);
+  color: var(--red-primary);
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+/* Dashboard Content */
+main {
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* KPI Row */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.kpi-card {
+  background: var(--white);
+  border: 1px solid #f8b4b4;
+  border-radius: 10px;
+  padding: 16px 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.kpi-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.kpi-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-top: 6px;
+}
+
+/* Alert Banner */
+.alert-banner {
+  background: var(--red-soft);
+  border: 1px solid #f8b4b4;
+  color: var(--red-dark);
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+/* Card Containers */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.card h2 {
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th {
+  background: var(--red-dark);
+  color: var(--white);
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 600;
+}
+
+th:first-child {
+  border-top-left-radius: 6px;
+}
+
+th:last-child {
+  border-top-right-radius: 6px;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* Badges */
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.badge-high {
+  background: var(--red-primary);
+  color: var(--white);
+}
+
+.badge-mod {
+  background: #f59e0b;
+  color: var(--white);
+}
+
+.badge-norm {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* Charts Grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+canvas {
+  max-height: 230px;
+}

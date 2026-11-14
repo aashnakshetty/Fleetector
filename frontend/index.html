@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fleetector | Live Fleet Status & Disruption Monitor</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>⚡ Fleetector</h1>
+      <span>Fleet Status &amp; Disruption Monitor</span>
+    </div>
+    <div class="header-meta" id="lastUpdated">Syncing live Neon PostgreSQL...</div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <h3>Interactive Controls</h3>
+      <div>
+        <label for="cityFilter">Hub Filter</label>
+        <select id="cityFilter" onchange="renderDashboard()">
+          <option value="ALL">All Metro Hubs (6)</option>
+        </select>
+      </div>
+      <button class="btn-red" onclick="loadData()">↻ Refresh Live Data</button>
+      <div class="nav-pill">📦 Live Quick-Commerce Telemetry</div>
+    </aside>
+
+    <main>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">High Surge Risk Hubs</div>
+          <div class="kpi-value" id="kpiHigh">0</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Moderate Delay Hubs</div>
+          <div class="kpi-value" id="kpiMod">0</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Avg Metro PM2.5</div>
+          <div class="kpi-value" id="kpiPm25">0</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Total DB Readings</div>
+          <div class="kpi-value" id="kpiReadings">0</div>
+        </div>
+      </div>
+
+      <div class="alert-banner" id="alertBanner">⚠️ Checking live metro disruption alerts...</div>
+
+      <div class="card">
+        <h2>Live Fleet Risk Status</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Hub</th>
+              <th>Disruption Status</th>
+              <th>Temp (°C)</th>
+              <th>Rain (mm)</th>
+              <th>Wind Gusts (km/h)</th>
+              <th>PM2.5 (µg/m³)</th>
+            </tr>
+          </thead>
+          <tbody id="fleetTableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="charts-grid">
+        <div class="card">
+          <h2>PM2.5 Smog Levels by City</h2>
+          <canvas id="pmChart"></canvas>
+        </div>
+        <div class="card">
+          <h2>Wind Gusts (km/h) &amp; Temp (°C)</h2>
+          <canvas id="weatherChart"></canvas>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
